@@ -28,4 +28,4 @@
 ### 使用已编译版本
 1. 从[Releases](https://github.com/Meltide/c-os/release)下载已编译版本
 2. 转到已编译文件所在的目录
-3. 输入 `./c-os.out` 来启动
+3. 输入 `./c-os` 来启动
