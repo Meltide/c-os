@@ -7,7 +7,7 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/Meltide/c-os)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Meltide/c-os)
 ![GitHub Created At](https://img.shields.io/github/created-at/Meltide/c-os) 
-## 一个基于C语言的伪操作系统
+**一个基于C语言的伪操作系统**
 
 </div>
 
