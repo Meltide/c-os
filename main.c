@@ -6,10 +6,18 @@ int main(){
     char username[256];
     char passwd[256];
     char defpasswd[] = "114514";
+    char version[] = "0.2";
     int count = 1;
     int space;
     system("clear");
-    printf("\nC-OS V0.1\n\n");
+    printf("\nC-OS V%s\n", version);
+    printf("   ____       ___  ____  \n");
+    printf("  / ___|     / _ \\/ ___| \n");
+    printf(" | |   _____| | | \\___ \\ \n");
+    printf(" | |__|_____| |_| |___) |\n");
+    printf("  \\____|     \\___/|____/ \n\n");
+    printf("Author: MeltIce\nAuthor's QQ: 3480656548\nAuthor's Github: Meltide\n\n");
+    printf("View this project on github: github.com/Meltide/c-os\n\n");
     while(count == 1){
         printf("Login: ");
         scanf("%s", &username);
@@ -65,7 +73,7 @@ int main(){
                             printf("Documents  Music  Video  Downloads\n");
                         }
                         else if(0 == strcmp(input, "version")){
-                            printf("C-OS V0.1\n");
+                            printf("C-OS V%s\n", version);
                         }
                         else if(0 == strcmp(input, "clear")){
                             system("clear");
