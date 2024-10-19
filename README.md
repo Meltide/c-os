@@ -8,7 +8,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/Meltide/c-os)
 ![GitHub Created At](https://img.shields.io/github/created-at/Meltide/c-os) 
 
-**一个基于C语言的伪操作系统**
+**一个基于C++语言的伪操作系统**
 
 </div>
 
@@ -16,11 +16,11 @@
 > [!TIP]
 > 本项目不支持Windows，仅Linux可用
 
-0. 确保你已经安装gcc
+0. 确保你已经安装g++
 1. 转到源码所在目录
 2. 输入以下命令来编译
    ```
-   gcc main.c
+   g++ main.cpp
    ```
 3. 输入 `./a.out` 来启动
 ### 使用已编译版本
