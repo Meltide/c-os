@@ -7,6 +7,17 @@
 
 using namespace std;
 
+void hideInput(bool hide) {
+    struct termios tty;
+    tcgetattr(STDIN_FILENO, &tty);
+    if (hide) {
+        tty.c_lflag &= ~ECHO;
+    } else {
+        tty.c_lflag |= ECHO;
+    }
+    tcsetattr(STDIN_FILENO, TCSANOW, &tty);
+}
+
 int main(){
     string username;
     string passwd;
@@ -28,8 +39,10 @@ int main(){
         getline(cin, username);
         if (username == "root") {
             cout << "Password: ";
+            hideInput(true);
             getline(cin, passwd);
             if (passwd == defpasswd) {
+                hideInput(false);
                 cout << endl;
                 while (count == 1) {
                     string input;
