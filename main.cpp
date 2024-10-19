@@ -38,51 +38,56 @@ int main(){
         cout << "Login: ";
         getline(cin, username);
         if (username == "root") {
-            cout << "Password: ";
-            hideInput(true);
-            getline(cin, passwd);
-            if (passwd == defpasswd) {
-                hideInput(false);
-                cout << endl;
-                while (count == 1) {
-                    string input;
-                    cout << "[root@localhost] ~ # ";
-                    getline(cin, input);
-                    if (input == "help") {
-                        cout << "ls         View the path." << endl;
-                        cout << "time       Get time and date." << endl;
-                        cout << "version    Show the version of C-OS." << endl;
-                        cout << "clear      Clean the screen." << endl;
-                        cout << "exit       Log out." << endl;
-                        cout << "shutdown   Shutdown the system." << endl;
+            while (count == 1) {
+                cout << "Password: ";
+                hideInput(true);
+                getline(cin, passwd);
+                if (passwd == defpasswd) {
+                    hideInput(false);
+                    cout << endl;
+                    while (count == 1) {
+                        string input;
+                        cout << "[root@localhost] ~ # ";
+                        getline(cin, input);
+                        if (input == "help") {
+                            cout << "ls         View the path." << endl;
+                            cout << "time       Get time and date." << endl;
+                            cout << "version    Show the version of C-OS." << endl;
+                            cout << "clear      Clean the screen." << endl;
+                            cout << "exit       Log out." << endl;
+                            cout << "shutdown   Shutdown the system." << endl;
+                        }
+                        else if (input == "time") {
+                            time_t currentTime;
+                            time(&currentTime);
+                            cout << ctime(&currentTime);
+                        }
+                        else if (input == "ls") {
+                            cout << "Documents  Music  Video  Downloads" << endl;
+                        }
+                        else if (input == "version") {
+                            cout << "C-OS V" << version << endl;
+                        }
+                        else if (input == "clear") {
+                            system("clear");
+                        }
+                        else if (input == "exit") {
+                            break;
+                        }
+                        else if (input == "shutdown") {
+                            system("clear");
+                            count = 0;
+                        }
+                        else if (input == "") {
+                            space = 0;
+                        }
+                        else {
+                            cout << "Unknown command." << endl;
+                        }
                     }
-                    else if (input == "time") {
-                        time_t currentTime;
-                        time(&currentTime);
-                        cout << ctime(&currentTime);
-                    }
-                    else if (input == "ls") {
-                        cout << "Documents  Music  Video  Downloads" << endl;
-                    }
-                    else if (input == "version") {
-                        cout << "C-OS V" << version << endl;
-                    }
-                    else if (input == "clear") {
-                        system("clear");
-                    }
-                    else if (input == "exit") {
-                        break;
-                    }
-                    else if (input == "shutdown") {
-                        system("clear");
-                        count = 0;
-                    }
-                    else if (input == "") {
-                        space = 0;
-                    }
-                    else {
-                        cout << "Unknown command." << endl;
-                    }
+                }
+                else {
+                    cout << "\nWrong password." << endl;
                 }
             }
         }
