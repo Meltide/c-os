@@ -35,7 +35,7 @@ int main(){
     cout << "A fake system based on C++\n\nAuthor: MeltIce\nAuthor's QQ: 3480656548\nAuthor's Github: Meltide\n" << endl;
     cout << "View this project on github: github.com/Meltide/c-os\n" << endl;
     while (count == 1) {
-        cout << "Login: ";
+        cout << "localhost login: ";
         getline(cin, username);
         if (username == "root") {
             while (count == 1) {
@@ -44,6 +44,7 @@ int main(){
                 getline(cin, passwd);
                 if (passwd == defpasswd) {
                     hideInput(false);
+                    cout << endl;
                     cout << endl;
                     while (count == 1) {
                         string input;
