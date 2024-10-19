@@ -16,17 +16,20 @@
 > [!TIP]
 > 本项目不支持Windows，仅Linux可用
 
-0. 确保你已经安装gcc
-1. 转到源码所在目录
-2. 输入以下命令来编译
-   ```
-   gcc main.c
-   ```
-3. 输入 `./a.out` 来启动
+0. 安装以下软件包：gcc-c++,cmake,make
+1. 创建文件夹 build 并进入
+2. 输入以下命令开始构建
+```Bash
+cmake .. && make
+```
+
 ### 使用已编译版本
+
 1. 从[Releases](https://github.com/Meltide/c-os/release)下载已编译版本
 2. 转到已编译文件所在的目录
 3. 输入 `./c-os` 来启动
+
 ## 其他
+
 - 用户名: **root**
 - 密码: **114514**

@@ -5,18 +5,9 @@
 #include <termios.h>
 #include <time.h>
 
-using namespace std;
+#include "include/hideInput.hpp"
 
-void hideInput(bool hide) {
-    struct termios tty;
-    tcgetattr(STDIN_FILENO, &tty);
-    if (hide) {
-        tty.c_lflag &= ~ECHO;
-    } else {
-        tty.c_lflag |= ECHO;
-    }
-    tcsetattr(STDIN_FILENO, TCSANOW, &tty);
-}
+using namespace std;
 
 int main(){
     string username;
@@ -37,10 +28,12 @@ int main(){
     while (count == 1) {
         cout << "Login: ";
         getline(cin, username);
+        cout << endl;
         if (username == "root") {
             cout << "Password: ";
             hideInput(true);
             getline(cin, passwd);
+            cout << endl;
             if (passwd == defpasswd) {
                 hideInput(false);
                 cout << endl;
@@ -84,6 +77,9 @@ int main(){
                         cout << "Unknown command." << endl;
                     }
                 }
+            } else {
+                cout << "Password incorrect." << endl;
+                hideInput(false);
             }
         }
         else {
