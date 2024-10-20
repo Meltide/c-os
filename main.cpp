@@ -55,6 +55,7 @@ int main(){
                             cout << "time       Get time and date." << endl;
                             cout << "version    Show the version of C-OS." << endl;
                             cout << "clear      Clean the screen." << endl;
+                            cout << "passwd     Change the password." << endl;
                             cout << "exit       Log out." << endl;
                             cout << "shutdown   Shutdown the system." << endl;
                         }
@@ -72,6 +73,23 @@ int main(){
                         else if (input == "clear") {
                             system("clear");
                         }
+                        else if (input == "passwd") {
+                            int mcount = 0;
+                            string oldpasswd;
+                            while (mcount == 0) {
+                                cout << "Input old password: ";
+                                getline(cin, oldpasswd);
+                                if (oldpasswd == defpasswd) {
+                                    break;
+                                }
+                                else {
+                                    cout << "Password incorrect." << endl;
+                                }
+                            }
+                            cout << "Input new password: ";
+                            getline(cin, defpasswd);
+                            cout << "Password successfully seted." << endl;
+                        }
                         else if (input == "exit") {
                             break;
                         }
@@ -88,7 +106,7 @@ int main(){
                     }
                 }
                 else {
-                    cout << "\nWrong password." << endl;
+                    cout << "\nPassword incorrect." << endl;
                 }
             }
         }
