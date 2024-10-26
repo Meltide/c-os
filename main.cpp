@@ -111,7 +111,7 @@ int main(){
             }
         }
         else {
-            cout << "Wrong username." << endl;
+            cout << "Username incorrect." << endl;
         }
     }
     return 0;
