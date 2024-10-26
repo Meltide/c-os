@@ -20,7 +20,7 @@
 1. 创建文件夹 build 并进入
 2. 输入以下命令开始构建
 ```Bash
-cmake . && make
+cmake .. && make
 ```
 3. 输入 `./c-os` 来启动
 
