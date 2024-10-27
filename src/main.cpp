@@ -12,7 +12,7 @@ int main(){
     string username;
     string passwd;
     string defpasswd = "114514";
-    string version = "0.3";
+    string version = "0.4";
     int count = 1;
     int space;
     system("clear");
