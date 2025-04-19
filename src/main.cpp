@@ -1,18 +1,30 @@
 #include <iostream>
+#include <fstream>
 #include <string>
-#include <stdlib.h>
+#include <cstdlib>
+#include <ctime>
 #include <unistd.h>
-#include <time.h>
 
 #include "include/hideInput.hpp"
+#include "include/random.hpp"
 
 using namespace std;
 
-int main(){
+int main()
+{
+    fstream file;
+    file.open("config.dat", ios::in);
+    if (file.is_open() == false)
+    {
+        cout << "Failed to open the file. Please check whether the config.dat file exists." << endl;
+        exit(0);
+    }
     string username;
     string passwd;
-    string defpasswd = "114514";
-    string version = "0.4";
+    string defpasswd;
+    file >> defpasswd;
+    file.close();
+    string version = "0.5";
     int count = 1;
     int space;
     system("clear");
@@ -24,23 +36,29 @@ int main(){
     cout << "  \\____|     \\___/|____/ \n" << endl;
     cout << "A fake system based on C++\n\nAuthor: MeltIce\nAuthor's QQ: 3480656548\nAuthor's Github: Meltide\n" << endl;
     cout << "View this project on github: github.com/Meltide/c-os\n" << endl;
-    while (count == 1) {
+    while (count == 1)
+    {
         cout << "localhost login: ";
         getline(cin, username);
-        if (username == "root") {
-            while (count == 1) {
+        if (username == "root")
+        {
+            while (count == 1)
+            {
                 cout << "Password: ";
                 hideInput(true);
                 getline(cin, passwd);
-                if (passwd == defpasswd) {
+                if (passwd == defpasswd)
+                {
                     hideInput(false);
                     cout << endl;
                     cout << endl;
-                    while (count == 1) {
+                    while (count == 1)
+                    {
                         string input;
                         cout << "[root@localhost] ~ # ";
                         getline(cin, input);
-                        if (input == "help") {
+                        if (input == "help")
+                        {
                             cout << "ls         View the path." << endl;
                             cout << "time       Get time and date." << endl;
                             cout << "version    Show the version of C-OS." << endl;
@@ -49,53 +67,65 @@ int main(){
                             cout << "exit       Log out." << endl;
                             cout << "shutdown   Shutdown the system." << endl;
                         }
-                        else if (input == "time") {
+                        else if (input == "time")
+                        {
                             time_t currentTime;
                             time(&currentTime);
                             cout << ctime(&currentTime);
                         }
-                        else if (input == "ls") {
+                        else if (input == "ls")
+                        {
                             cout << "Documents  Music  Video  Downloads" << endl;
                         }
-                        else if (input == "version") {
+                        else if (input == "version")
+                        {
                             cout << "C-OS V" << version << endl;
                         }
-                        else if (input == "clear") {
+                        else if (input == "clear")
+                        {
                             system("clear");
                         }
-                        else if (input == "passwd") {
+                        else if (input == "passwd")
+                        {
                             int mcount = 0;
                             string oldpasswd;
-                            while (mcount == 0) {
+                            while (mcount == 0)
+                            {
                                 cout << "Input old password: ";
                                 getline(cin, oldpasswd);
-                                if (oldpasswd == defpasswd) {
+                                if (oldpasswd == defpasswd)
                                     break;
-                                }
-                                else {
+                                else
                                     cout << "Password incorrect." << endl;
-                                }
                             }
                             cout << "Input new password: ";
                             getline(cin, defpasswd);
+                            file.open("config.dat", ios::out | ios::trunc);
+                            file << defpasswd;
+                            file.close();
                             cout << "Password successfully seted." << endl;
                         }
-                        else if (input == "exit") {
+                        else if (input == "exit")
+                        {
                             break;
                         }
-                        else if (input == "shutdown") {
+                        else if (input == "shutdown")
+                        {
                             system("clear");
                             count = 0;
                         }
-                        else if (input == "") {
+                        else if (input == "")
+                        {
                             space = 0;
                         }
-                        else {
+                        else
+                        {
                             cout << "Unknown command." << endl;
                         }
                     }
                 }
-                else {
+                else
+                {
                     cout << "\nPassword incorrect." << endl;
                 }
             }
